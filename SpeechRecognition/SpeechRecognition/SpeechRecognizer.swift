@@ -43,14 +43,15 @@ actor SpeechRecognizer: ObservableObject {
     private var recognizer: SFSpeechRecognizer?
     // 음성을 텍스트로 변화하는데 사용되는 주요 객체
     
-    
     init() {
+        recognizer = SFSpeechRecognizer()
         guard recognizer != nil else {
             self.transcribe(RecognizerError.nilRecognizer)
             return
         }
         print("recognizer ready")
         checkAuthorization()
+
     }
     
     // nonisolated 읽기만 가능한 actor는 race codition이 발생하지 않는 것을 보장하므로, 메소드 앞에 nonisolated를 붙여서 사용하는 쪽에서 Task, await 키워드 없이 접근이 가능하게 제공

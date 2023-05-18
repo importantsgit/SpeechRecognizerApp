@@ -13,7 +13,7 @@ class TTSManager:NSObject {
     
     private let synthesizer = AVSpeechSynthesizer()
     
-    private let voice = Voices.siri_Aaron
+    private let voice = Voices.Grandma
 
     enum Voices {
         
@@ -67,10 +67,15 @@ class TTSManager:NSObject {
             synthesizer.stopSpeaking(at: .immediate)
             return
         }
+        let voices = AVSpeechSynthesisVoice.speechVoices()
+        for (idx,voice) in voices.enumerated() {
+           print("\(idx) Voice: \(voice.name), Quality: \(voice.quality.rawValue)")
+        }
         let utterance = AVSpeechUtterance(string: text)
         // 음성 합성을 위한 텍스트와 음성에 영향을 미치는 매개변수를 캡슐화하는 개체
         // 여러 utterance로 나누어 다른 말투로 말하게 할 수 있음
-
+        
+        
         utterance.voice = AVSpeechSynthesisVoice(identifier: voice)
         //AVSpeechSynthesisVoice(language: "en-KR")
         // 음성 합성기가 발화할 때 사용하는 음성
@@ -94,6 +99,7 @@ class TTSManager:NSObject {
         // 0.0~1.0 기본값: 1.0
         
         synthesizer.stopSpeaking(at: .immediate)
+
         // 음성이 시작된 후 합성기를 일시 중지하거나 중지할 수 있음
         //synthesizer.pauseSpeaking(at: .immediate)
         // 상태값 확인 가능

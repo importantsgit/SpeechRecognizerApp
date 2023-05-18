@@ -128,7 +128,13 @@ class ViewController: UIViewController {
             button.backgroundColor = .gray
         } else {
             speechRecognizer.stopTranscribing()
+            speechRecognizer.resetTranscript()
             label.text = speechRecognizer.transcript
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) { [weak self] in
+                guard let self = self else {return}
+                TTSManager.shared.play(self.speechRecognizer.transcript)
+            }
+
             button.backgroundColor = .systemRed
         }
     }
