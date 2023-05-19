@@ -44,14 +44,13 @@ actor SpeechRecognizer: ObservableObject {
     // 음성을 텍스트로 변화하는데 사용되는 주요 객체
     
     init() {
-        recognizer = SFSpeechRecognizer()
+        recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-KR"))
         guard recognizer != nil else {
             self.transcribe(RecognizerError.nilRecognizer)
             return
         }
         print("recognizer ready")
         checkAuthorization()
-
     }
     
     // nonisolated 읽기만 가능한 actor는 race codition이 발생하지 않는 것을 보장하므로, 메소드 앞에 nonisolated를 붙여서 사용하는 쪽에서 Task, await 키워드 없이 접근이 가능하게 제공
@@ -75,11 +74,16 @@ actor SpeechRecognizer: ObservableObject {
                 transcribe(error)
             }
         }
-
     }
     
     // 특정 메소드만 메인 스레드에서 항상 실행되어야 하는 경우 @MainActor 키워드 사용
     @MainActor func startTranscribing() {
+        // Concurrency한 환경(병렬)을 바다로 비유
+        // Task를 배로 표현
+        // - 순차적 (Sequential)
+        // - 비동기적 (Asynchronous)
+        // - 독립적 (Self-contained)
+        // - Task들은 서로 아무런 영향을 주지 않기 때문에 이론적으로 Race Condition에서 안전
         Task {
             await transcribe()
         }
@@ -96,7 +100,6 @@ actor SpeechRecognizer: ObservableObject {
             await reset()
         }
     }
-    
     
     private func transcribe() {
         guard let recognizer = recognizer, recognizer.isAvailable else {
@@ -122,6 +125,9 @@ actor SpeechRecognizer: ObservableObject {
         // 인식 요청 결과 취소
         audioEngine?.stop()
         // 오디오 입력 중단
+        audioEngine?.inputNode.removeTap(onBus: 0)
+        request?.endAudio()
+        
         audioEngine = nil
         request = nil
         task = nil
@@ -136,7 +142,7 @@ actor SpeechRecognizer: ObservableObject {
         // 오디오 녹음을 준비 할 AVAudioSession을 만들기
         // audioEngine (장치)에 녹음 할 오디오 입력이 있는지 확인.
         let audioSession = AVAudioSession.sharedInstance()
-        try audioSession.setCategory(.playAndRecord, mode: .measurement, options:  .duckOthers)
+        try audioSession.setCategory(.playAndRecord, mode: .measurement, options: .duckOthers)
         try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         let inputNode = audioEngine.inputNode
         

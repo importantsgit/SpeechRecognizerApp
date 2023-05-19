@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     var speechRecognizer = SpeechRecognizer()
     
+    var TextToSpeechManager = TTSManager()
+    
     lazy var button: UIButton = {
         var button = UIButton()
         button.backgroundColor = .systemRed
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
         button.backgroundColor = .blue
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 2.0
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(listenButtonTapped), for: .touchUpInside)
         
         return button
     }()
@@ -128,14 +130,23 @@ class ViewController: UIViewController {
             button.backgroundColor = .gray
         } else {
             speechRecognizer.stopTranscribing()
-            speechRecognizer.resetTranscript()
             label.text = speechRecognizer.transcript
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) { [weak self] in
-                guard let self = self else {return}
-                TTSManager.shared.play(self.speechRecognizer.transcript)
-            }
 
             button.backgroundColor = .systemRed
         }
+    }
+    
+    @objc func listenButtonTapped() {
+        listenButton.isSelected.toggle()
+        
+        if listenButton.isSelected {
+            TextToSpeechManager.play(self.label.text)
+            listenButton.backgroundColor = .gray
+        } else {
+            TextToSpeechManager.stop()
+            listenButton.backgroundColor = .blue
+        }
+
+            
     }
 }

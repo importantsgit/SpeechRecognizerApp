@@ -9,14 +9,21 @@ import Foundation
 import AVFAudio
 
 class TTSManager:NSObject {
-    static let shared = TTSManager()
-    
     private let synthesizer = AVSpeechSynthesizer()
     
-    private let voice = Voices.Grandma
+    private let voice = Voices.siri_Aaron
+    
+    enum TTSError: Error {
+        case TTSUnavailable
+        
+        var message: String {
+            switch self {
+            case .TTSUnavailable: return "TTS is unvailable"
+            }
+        }
+    }
 
     enum Voices {
-        
         // 할아버지?
         static let Grandpa = "com.apple.eloquence.en-GB.Grandpa"
         
@@ -52,31 +59,46 @@ class TTSManager:NSObject {
         // 남자
         static let Ralph = "com.apple.speech.synthesis.voice.Ralph"
         
-
+        // kr
+        static let Yuna = "com.apple.voice.compact.ko-KR.Yuna"
+        
+        static let song = "com.apple.speech.synthesis.voice.Bubbles]+com.apple.speech.synthesis.voice.Bubbles"
     }
     
     var stoppedSpeak: ((Bool)->Void)?
     
-    private override init() {
+    override init() {
         super.init()
         synthesizer.delegate = self
+        checkVoices()
+    }
+    
+    func checkVoices() {
+        AVSpeechSynthesisVoice.speechVoices().forEach{
+            print("\($0.description)+\($0.identifier)")
+        }
     }
     
     func play(_ text: String?) {
+        synthesizer.stopSpeaking(at: .immediate)
         guard let text = text else {
-            synthesizer.stopSpeaking(at: .immediate)
+            print(text!)
+            
             return
         }
-        let voices = AVSpeechSynthesisVoice.speechVoices()
-        for (idx,voice) in voices.enumerated() {
-           print("\(idx) Voice: \(voice.name), Quality: \(voice.quality.rawValue)")
+        do {
+            try prepareAudioSession()
+        } catch {
+            transcribe(error)
         }
+       
         let utterance = AVSpeechUtterance(string: text)
         // 음성 합성을 위한 텍스트와 음성에 영향을 미치는 매개변수를 캡슐화하는 개체
         // 여러 utterance로 나누어 다른 말투로 말하게 할 수 있음
         
-        
-        utterance.voice = AVSpeechSynthesisVoice(identifier: voice)
+        //utterance.voice = AVSpeechSynthesisVoice(identifier: voice)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        // en-KR 가 아니면 오류 생김
         //AVSpeechSynthesisVoice(language: "en-KR")
         // 음성 합성기가 발화할 때 사용하는 음성
         // 발화: 말하는 행위나 음성을 내는 것
@@ -110,8 +132,25 @@ class TTSManager:NSObject {
         // 합성기가 말하고 있는 경우, 합성기는 utterance를 대기열에 추가하고 받은 순서대로 말함
     }
     
+    func prepareAudioSession() throws {
+        let audioSession = AVAudioSession.sharedInstance()
+        try audioSession.setCategory(.playback, mode: .default)
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+    }
+    
     func stop() {
         synthesizer.stopSpeaking(at: .immediate)
+    }
+    
+    private func transcribe(_ error: Error) {
+        var errorMessage = ""
+
+        if let error = error as? TTSError {
+            errorMessage += error.message
+        } else {
+            errorMessage += error.localizedDescription
+        }
+        print(errorMessage)
     }
 }
 
