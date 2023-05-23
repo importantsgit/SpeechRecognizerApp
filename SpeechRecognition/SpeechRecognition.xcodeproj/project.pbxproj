@@ -17,12 +17,19 @@
 		7B9EC2472A1B394C005371D0 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2462A1B394C005371D0 /* UIImage+Utils.swift */; };
 		7B9EC2492A1B3EBC005371D0 /* PreferenceDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2482A1B3EBC005371D0 /* PreferenceDataUtils.swift */; };
 		7B9EC24B2A1B4E64005371D0 /* SystemPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC24A2A1B4E64005371D0 /* SystemPrompt.swift */; };
-		7BC8418E2A17399B0011221C /* ChatGPTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC8418D2A17399B0011221C /* ChatGPTAPI.swift */; };
+		7BA686DD2A1C97BA0021FE19 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA686DC2A1C97BA0021FE19 /* PopupViewController.swift */; };
+		7BA686DF2A1C98050021FE19 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA686DE2A1C98050021FE19 /* UIButton.swift */; };
+		7BA686E12A1CAB2C0021FE19 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA686E02A1CAB2C0021FE19 /* MainViewController.swift */; };
+		7BA686E32A1CABF00021FE19 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA686E22A1CABF00021FE19 /* MainCollectionViewCell.swift */; };
+		7BC5346A2A1C51D80015F3B4 /* HistoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC534692A1C51D80015F3B4 /* HistoryListCollectionViewCell.swift */; };
+		7BC5346D2A1C770A0015F3B4 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5346C2A1C770A0015F3B4 /* UIColor+Utils.swift */; };
+		7BC5346F2A1C77110015F3B4 /* UIColor+Super.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5346E2A1C77110015F3B4 /* UIColor+Super.swift */; };
+		7BC8418E2A17399B0011221C /* ChatGPTChatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC8418D2A17399B0011221C /* ChatGPTChatAPI.swift */; };
 		7BC841902A174CE40011221C /* ChatGPTModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC8418F2A174CE40011221C /* ChatGPTModels.swift */; };
 		7BC841922A1768D50011221C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC841912A1768D50011221C /* ViewModel.swift */; };
 		7BFA24D92A13451000A6A444 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24D82A13451000A6A444 /* AppDelegate.swift */; };
 		7BFA24DB2A13451000A6A444 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24DA2A13451000A6A444 /* SceneDelegate.swift */; };
-		7BFA24DD2A13451000A6A444 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24DC2A13451000A6A444 /* ViewController.swift */; };
+		7BFA24DD2A13451000A6A444 /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24DC2A13451000A6A444 /* SectionViewController.swift */; };
 		7BFA24E32A13451000A6A444 /* SpeechRecognition.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24E12A13451000A6A444 /* SpeechRecognition.xcdatamodeld */; };
 		7BFA24E52A13451100A6A444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BFA24E42A13451100A6A444 /* Assets.xcassets */; };
 		7BFA24E82A13451100A6A444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFA24E62A13451100A6A444 /* LaunchScreen.storyboard */; };
@@ -40,15 +47,22 @@
 		7B9EC2462A1B394C005371D0 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		7B9EC2482A1B3EBC005371D0 /* PreferenceDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceDataUtils.swift; sourceTree = "<group>"; };
 		7B9EC24A2A1B4E64005371D0 /* SystemPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPrompt.swift; sourceTree = "<group>"; };
+		7BA686DC2A1C97BA0021FE19 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		7BA686DE2A1C98050021FE19 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		7BA686E02A1CAB2C0021FE19 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7BA686E22A1CABF00021FE19 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		7BC534692A1C51D80015F3B4 /* HistoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListCollectionViewCell.swift; sourceTree = "<group>"; };
+		7BC5346C2A1C770A0015F3B4 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		7BC5346E2A1C77110015F3B4 /* UIColor+Super.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Super.swift"; sourceTree = "<group>"; };
 		7BC8418B2A1711C70011221C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7BC8418C2A1711FF0011221C /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		7BC8418D2A17399B0011221C /* ChatGPTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTAPI.swift; sourceTree = "<group>"; };
+		7BC8418D2A17399B0011221C /* ChatGPTChatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTChatAPI.swift; sourceTree = "<group>"; };
 		7BC8418F2A174CE40011221C /* ChatGPTModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTModels.swift; sourceTree = "<group>"; };
 		7BC841912A1768D50011221C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7BFA24D52A13451000A6A444 /* SpeechRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BFA24D82A13451000A6A444 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BFA24DA2A13451000A6A444 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7BFA24DC2A13451000A6A444 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7BFA24DC2A13451000A6A444 /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
 		7BFA24E22A13451000A6A444 /* SpeechRecognition.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpeechRecognition.xcdatamodel; sourceTree = "<group>"; };
 		7BFA24E42A13451100A6A444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BFA24E72A13451100A6A444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,7 +86,7 @@
 			children = (
 				7BFA24EF2A1356BF00A6A444 /* SpeechRecognizer.swift */,
 				7B0CEF0E2A14931C00D00081 /* TTSManager.swift */,
-				7BC8418D2A17399B0011221C /* ChatGPTAPI.swift */,
+				7BC8418D2A17399B0011221C /* ChatGPTChatAPI.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -99,11 +113,13 @@
 			children = (
 				7B9EC2442A1B335A005371D0 /* AppAppearance.swift */,
 				7B9EC2332A1B227E005371D0 /* Consts.swift */,
+				7B9EC2482A1B3EBC005371D0 /* PreferenceDataUtils.swift */,
+				7BC5346E2A1C77110015F3B4 /* UIColor+Super.swift */,
+				7BC5346C2A1C770A0015F3B4 /* UIColor+Utils.swift */,
 				7B9EC23B2A1B2C10005371D0 /* UIFont+Super.swift */,
+				7B9EC2462A1B394C005371D0 /* UIImage+Utils.swift */,
 				7B9EC2392A1B29C5005371D0 /* UILabel+Super.swift */,
 				7B9EC2422A1B2C86005371D0 /* UILabel+Utils.swift */,
-				7B9EC2462A1B394C005371D0 /* UIImage+Utils.swift */,
-				7B9EC2482A1B3EBC005371D0 /* PreferenceDataUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -111,10 +127,23 @@
 		7B9EC2412A1B2C58005371D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7BFA24DC2A13451000A6A444 /* ViewController.swift */,
-				7B9EC2372A1B2906005371D0 /* HistoryListViewController.swift */,
+				7BA686E02A1CAB2C0021FE19 /* MainViewController.swift */,
+				7BA686E22A1CABF00021FE19 /* MainCollectionViewCell.swift */,
+				7BFA24DC2A13451000A6A444 /* SectionViewController.swift */,
+				7BC5346B2A1C57430015F3B4 /* HistoryList */,
+				7BA686DC2A1C97BA0021FE19 /* PopupViewController.swift */,
+				7BA686DE2A1C98050021FE19 /* UIButton.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7BC5346B2A1C57430015F3B4 /* HistoryList */ = {
+			isa = PBXGroup;
+			children = (
+				7B9EC2372A1B2906005371D0 /* HistoryListViewController.swift */,
+				7BC534692A1C51D80015F3B4 /* HistoryListCollectionViewCell.swift */,
+			);
+			path = HistoryList;
 			sourceTree = "<group>";
 		};
 		7BFA24CC2A13451000A6A444 = {
@@ -230,15 +259,22 @@
 				7B9EC23C2A1B2C10005371D0 /* UIFont+Super.swift in Sources */,
 				7BC841922A1768D50011221C /* ViewModel.swift in Sources */,
 				7B0CEF0F2A14931C00D00081 /* TTSManager.swift in Sources */,
-				7BFA24DD2A13451000A6A444 /* ViewController.swift in Sources */,
+				7BFA24DD2A13451000A6A444 /* SectionViewController.swift in Sources */,
 				7B9EC23A2A1B29C5005371D0 /* UILabel+Super.swift in Sources */,
 				7BFA24D92A13451000A6A444 /* AppDelegate.swift in Sources */,
 				7B9EC2492A1B3EBC005371D0 /* PreferenceDataUtils.swift in Sources */,
+				7BA686DD2A1C97BA0021FE19 /* PopupViewController.swift in Sources */,
 				7B9EC2452A1B335A005371D0 /* AppAppearance.swift in Sources */,
-				7BC8418E2A17399B0011221C /* ChatGPTAPI.swift in Sources */,
+				7BC8418E2A17399B0011221C /* ChatGPTChatAPI.swift in Sources */,
+				7BC5346F2A1C77110015F3B4 /* UIColor+Super.swift in Sources */,
+				7BA686E12A1CAB2C0021FE19 /* MainViewController.swift in Sources */,
+				7BA686DF2A1C98050021FE19 /* UIButton.swift in Sources */,
 				7B9EC2472A1B394C005371D0 /* UIImage+Utils.swift in Sources */,
 				7BC841902A174CE40011221C /* ChatGPTModels.swift in Sources */,
+				7BC5346D2A1C770A0015F3B4 /* UIColor+Utils.swift in Sources */,
+				7BC5346A2A1C51D80015F3B4 /* HistoryListCollectionViewCell.swift in Sources */,
 				7BFA24DB2A13451000A6A444 /* SceneDelegate.swift in Sources */,
+				7BA686E32A1CABF00021FE19 /* MainCollectionViewCell.swift in Sources */,
 				7B9EC2432A1B2C86005371D0 /* UILabel+Utils.swift in Sources */,
 				7BFA24E32A13451000A6A444 /* SpeechRecognition.xcdatamodeld in Sources */,
 			);

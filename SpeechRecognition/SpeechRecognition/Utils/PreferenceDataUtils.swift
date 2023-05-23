@@ -50,4 +50,8 @@ enum PreferenceDataUtils {
         let saved = UserDefaults.standard.value(forKey: key) as? Int
         return saved ?? defautValue
     }
+    
+    static public func removeObject(key: String){
+        UserDefaults.standard.removeObject(forKey: key)
+    }
 }

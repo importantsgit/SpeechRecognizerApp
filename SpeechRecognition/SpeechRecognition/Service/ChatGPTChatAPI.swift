@@ -26,10 +26,10 @@ final class ChatGPTAPI: @unchecked Sendable {
     private let model: String
     
     private let apiKey: String
-    private var historyList = [Message]()
+    private var historyList = Messages(messages: [])
     private let urlSession = URLSession.shared
     private var urlRequest: URLRequest {
-        let url = URL(string: "https://api.openai.com/v1/completions")!
+        let url = URL(string: "https://api.openai.com/v1/chat/completions")!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         headers.forEach{
@@ -41,7 +41,7 @@ final class ChatGPTAPI: @unchecked Sendable {
     let dateFomatter: DateFormatter = {
         let dateFomatter = DateFormatter()
         dateFomatter.dateFormat = "YYYY-MM-dd"
-        dateFomatter.locale = Locale.init(identifier: "kr-KR")
+        dateFomatter.locale = Locale.init(identifier: "ko-KR")
         
         return dateFomatter
     }()
@@ -60,22 +60,27 @@ final class ChatGPTAPI: @unchecked Sendable {
         ]
     }
     
-    init(apiKey: String, model: String = "gpt-3.5-turbo", systemPrompt: String = "You are a BBF that reluctantly answers questions with warm responses", temperature: Double = 0.5) {
+    init(apiKey: String, model: String = "gpt-3.5-turbo", systemPrompt: String = SystemPrompt.immigrationOfficer, temperature: Double = 0.5) {
         self.apiKey = apiKey
         self.model = model
-        self.systemMessage = .init(role: "BBF", content: systemPrompt)
+        self.systemMessage = .init(role: "system", content: systemPrompt)
         // systemPrompt: 역할 지정
         self.temperature = temperature
+
+  
+        
+        
+
 
     }
     
     // 메세지 관리
     private func generateMessages(from text: String) -> [Message] {
-        var messages = [systemMessage] + historyList + [Message(role: "user", content: text)]
+        var messages = [systemMessage] + historyList.messages + [Message(role: "user", content: text)]
         
         // 만약 4000*4 메세지 초과면 삭제
         if messages.contentCount > (4000 * 4) {
-            _ = historyList.removeFirst()
+            _ = historyList.messages.removeFirst()
             messages = generateMessages(from: text)
         }
         return messages
@@ -89,10 +94,44 @@ final class ChatGPTAPI: @unchecked Sendable {
     
     // 유저와 AI가 대화한 내용 저장
     private func appendToHistoryList(userText: String, responseText: String){
-        self.historyList.append(.init(role: "user", content: userText))
-        self.historyList.append(.init(role: "assistant", content: responseText))
+        self.historyList.messages.append(.init(role: "user", content: userText))
+        self.historyList.messages.append(.init(role: "assistant", content: responseText))
+        saveMessages(messages: self.historyList.messages)
     }
     
+    private func saveMessages(messages: [Message]) {
+        if let encoded = try? JSONEncoder().encode(messages){
+            PreferenceDataUtils.setData(value: encoded, key: Consts.SaveKey.messages.rawValue)
+        }
+    }
+    
+    private func loadMessages() {
+        if let data = PreferenceDataUtils.getData(key: Consts.SaveKey.messages.rawValue),
+           let messages = try? JSONDecoder().decode([Message].self, from: data) {
+            self.historyList.messages = messages
+        }
+    }
+    
+    func deleteMessages() {
+        PreferenceDataUtils.removeObject(key: Consts.SaveKey.messages.rawValue)
+        self.historyList.messages = []
+    }
+    
+    func getMessages() -> [Message] {
+        return self.historyList.messages
+    }
+    
+    func getLastMessage()->Message? {
+    
+        if historyList.messages.isEmpty,
+           historyList.messages.count >= 2  {
+            loadMessages()
+        }
+        
+        var messages = historyList.messages
+        return messages.last
+    }
+
     // post하기 (비동기)
     func sendMessageStream(text: String) async throws -> AsyncThrowingStream<String, Error> {
         var urlRequest = self.urlRequest
@@ -186,7 +225,7 @@ final class ChatGPTAPI: @unchecked Sendable {
     }
     
     func deleteHistoryList() {
-        self.historyList.removeAll()
+        self.historyList.messages.removeAll()
     }
 }
 
@@ -194,6 +233,10 @@ extension String: CustomNSError {
     public var errorUserInfo: [String : Any] {
         [NSLocalizedDescriptionKey: self]
     }
+}
+
+struct Messages: Codable {
+    var messages: [Message]
 }
 
 struct Message: Codable {

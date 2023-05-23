@@ -36,6 +36,18 @@ class ViewModel: ObservableObject {
         return streamText
     }
     
+    func getMessages() -> [Message] {
+        api.getMessages()
+    }
+    
+    func deleteMessages() {
+        api.deleteMessages()
+    }
+    
+    func getLastMessage() -> Message? {
+        api.getLastMessage()
+    }
+    
 }
 
 struct AttributedOutput {
