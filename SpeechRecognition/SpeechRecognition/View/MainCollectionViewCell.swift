@@ -82,7 +82,8 @@ extension MainCollectionViewCell {
         
     }
     
-    func setup(image: UIImage) {
-        self.imageView.image = image
+    func setup(image: String, name: String) {
+        self.imageView.image = UIImage(named: image)
+        self.label.text = name
     }
 }
