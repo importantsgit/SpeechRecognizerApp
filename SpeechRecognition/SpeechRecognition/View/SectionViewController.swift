@@ -18,7 +18,9 @@ class SectionViewController: UIViewController {
     private var userContainView = UIView()
     private var chatGPTcontainView = UIView()
     
-    var vm = ViewModel(api: ChatGPTAPI(apiKey: Consts.ChatGPTAPIKEY))
+    var type: Consts.Places
+    
+    var vm: ViewModel
 
     var userTitleLabel = CreateLabel().setupText("User")
         .setupTextColor(.systemGray)
@@ -81,6 +83,16 @@ class SectionViewController: UIViewController {
         return label
     }()
     
+    init(type: Consts.Places){
+        self.vm = ViewModel(api: ChatGPTAPI(apiKey: Consts.ChatGPTAPIKEY, type: type))
+        self.type = type
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -92,6 +104,11 @@ class SectionViewController: UIViewController {
         getLastContent()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        TTSManager.shared.stop()
+    }
+    
     func getLastContent() {
         guard let message = vm.getLastMessage() else {return}
         userLabel.text = "상대의 말에 이어서 말해보세요"
@@ -99,8 +116,46 @@ class SectionViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        self.title = "회화"
+
         navigationItem.rightBarButtonItems = [listButtonItem, resetButtonItem]
+        guard let role = Consts.role[type] else {
+            navigationItem.title = "Talk"
+            return
+        }
+        let job = role[0]
+        let name = role[1]
+        navigationItem.titleView = setTitle(title: job, subTitle: name)
+    }
+    
+    func setTitle(title: String, subTitle: String) -> UIView {
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: -5, width: 0, height: 0))
+        
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        titleLabel.text = title
+        titleLabel.textColor = .white
+        titleLabel.sizeToFit()
+        
+        let subTitleLabel = UILabel(frame: CGRect(x: 0, y: 18, width: 0, height: 0))
+        subTitleLabel.backgroundColor = UIColor.clear
+        subTitleLabel.font = UIFont.systemFont(ofSize: 12)
+        subTitleLabel.text = subTitle
+        subTitleLabel.textColor = .white
+        subTitleLabel.sizeToFit()
+        let titleLabelSize = titleLabel.frame.size, subTitleLabelSize = subTitleLabel.frame.size
+        
+        let width = titleLabelSize.width > subTitleLabelSize.width ? titleLabelSize.width : subTitleLabelSize.width
+        let height = titleLabelSize.height + subTitleLabelSize.height + 4.0
+        
+        let titleStackView = UIStackView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        titleStackView.addArrangedSubview(titleLabel)
+        titleStackView.addArrangedSubview(subTitleLabel)
+        titleStackView.spacing = 2.0
+        titleStackView.axis = .vertical
+        titleStackView.alignment = .center
+        titleStackView.distribution = .equalCentering
+        
+        return titleStackView
     }
     
     func setupViews() {
@@ -234,7 +289,7 @@ class SectionViewController: UIViewController {
     
     @objc func listButtonItemTapped() {
         let messages = self.vm.getMessages()
-        let vc = HistoryListViewController(messages: messages)
+        let vc = HistoryListViewController(messages: messages, type: self.type)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -245,8 +300,18 @@ class SectionViewController: UIViewController {
         vc.setPopup(title: "데이터 삭제", description: "삭제하면 저장되었던 데이터가 사라집니다.", buttonTitle: "삭제하기", buttonType: .optional) { [weak self] in
             guard let self = self else {return}
             self.vm.deleteMessages()
+            self.resetLabel()
         }
 
         self.present(vc, animated: true)
     }
+    
+    func resetLabel() {
+        userLabel.text = "가볍게 인사해주세요!"
+        chatGPTLabel.text = "당신과 대화할 준비가 되어 있답니다."
+    }
+}
+
+enum SectionViewContent {
+    //static let
 }

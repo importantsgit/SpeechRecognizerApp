@@ -11,6 +11,7 @@ class HistoryListViewController: UIViewController {
 
     private var padding: CGFloat = 32.0
     var messages: [Message]
+    var type: Consts.Places
     
     private lazy var collectionView: UICollectionView = {
         
@@ -28,15 +29,21 @@ class HistoryListViewController: UIViewController {
     var label = CreateLabel()
         .setupText("현재 대화한 내용이 없습니다.")
         .setupFont(OBFont.header)
-        .setupTextColor(MyColor.titleColor.title1)
+        .setupTextColor(MyColor.decsriptionColor.decsription1)
         .setuplabelAlignment(.center)
         .build()
     
     var bottomView = UIView()
     
-    init(messages: [Message]) {
-        self.messages = messages
+    lazy var muteButtonItem: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "", image: UIImage(systemName: "speaker.zzz"), target: self, action: #selector(muteButtonItemTapped))
         
+        return button
+    }()
+    
+    init(messages: [Message], type: Consts.Places) {
+        self.messages = messages
+        self.type = type
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,15 +51,16 @@ class HistoryListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = MyColor.backgroundColor
         setupViews()
+        setupNavigationBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        TTSManager.shared.stop()
     }
     
     private func createLayout() -> UICollectionViewLayout {
@@ -69,6 +77,51 @@ class HistoryListViewController: UIViewController {
             return section
         }
         return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
+    }
+    
+    func setupNavigationBar() {
+
+        navigationItem.rightBarButtonItem = muteButtonItem
+        guard let role = Consts.role[type] else {
+            navigationItem.title = "대화 리스트"
+            return
+        }
+        let job = role[0]
+        let name = role[1]
+        navigationItem.titleView = setTitle(title: "대화리스트", subTitle: name)
+    }
+    
+    
+    //FIXME: 반복되는 부분
+    func setTitle(title: String, subTitle: String) -> UIView {
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: -5, width: 0, height: 0))
+        
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        titleLabel.text = title
+        titleLabel.textColor = .white
+        titleLabel.sizeToFit()
+        
+        let subTitleLabel = UILabel(frame: CGRect(x: 0, y: 18, width: 0, height: 0))
+        subTitleLabel.backgroundColor = UIColor.clear
+        subTitleLabel.font = UIFont.systemFont(ofSize: 12)
+        subTitleLabel.text = subTitle
+        subTitleLabel.textColor = .white
+        subTitleLabel.sizeToFit()
+        let titleLabelSize = titleLabel.frame.size, subTitleLabelSize = subTitleLabel.frame.size
+        
+        let width = titleLabelSize.width > subTitleLabelSize.width ? titleLabelSize.width : subTitleLabelSize.width
+        let height = titleLabelSize.height + subTitleLabelSize.height + 4.0
+        
+        let titleStackView = UIStackView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        titleStackView.addArrangedSubview(titleLabel)
+        titleStackView.addArrangedSubview(subTitleLabel)
+        titleStackView.spacing = 2.0
+        titleStackView.axis = .vertical
+        titleStackView.alignment = .center
+        titleStackView.distribution = .equalCentering
+        
+        return titleStackView
     }
     
     func setupViews() {
@@ -95,6 +148,10 @@ class HistoryListViewController: UIViewController {
         bottomView.backgroundColor = .systemMint
         label.isHidden = !messages.isEmpty
     }
+    
+    @objc func muteButtonItemTapped() {
+        TTSManager.shared.stop()
+    }
 }
 
 extension HistoryListViewController: UICollectionViewDelegateFlowLayout {
@@ -113,8 +170,13 @@ extension HistoryListViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MessageCell", for: indexPath) as? HistoryListCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.setup(message: messages[indexPath.row])
+        cell.setup(message: messages[indexPath.row], type: self.type)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let message = messages[indexPath.row]
+        TTSManager.shared.play(message.content)
     }
 }

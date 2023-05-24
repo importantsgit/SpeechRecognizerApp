@@ -9,6 +9,10 @@ import Foundation
 import AVFAudio
 
 class TTSManager:NSObject {
+    
+    static let shared = TTSManager()
+
+    
     private let synthesizer = AVSpeechSynthesizer()
     
     private let voice = Voices.siri_Aaron
@@ -80,7 +84,6 @@ class TTSManager:NSObject {
     }
     
     func play(_ text: String?) {
-        synthesizer.stopSpeaking(at: .immediate)
         guard let text = text else {
             print(text!)
             

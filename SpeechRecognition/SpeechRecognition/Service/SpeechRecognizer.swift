@@ -44,7 +44,7 @@ actor SpeechRecognizer: ObservableObject {
     // 음성을 텍스트로 변화하는데 사용되는 주요 객체
     
     init() {
-        recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-KR"))
+        recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
         guard recognizer != nil else {
             self.transcribe(RecognizerError.nilRecognizer)
             return

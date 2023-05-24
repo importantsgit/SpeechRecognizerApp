@@ -11,7 +11,6 @@ import AVKit
 class ViewModel: ObservableObject {
     
     private let api: ChatGPTAPI
-    private let TTS = TTSManager()
     
     init(api: ChatGPTAPI) {
         self.api = api
@@ -32,7 +31,7 @@ class ViewModel: ObservableObject {
             return ""
         }
         
-        TTS.play(streamText)
+        TTSManager.shared.play(streamText)
         return streamText
     }
     

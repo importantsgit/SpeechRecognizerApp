@@ -19,7 +19,7 @@ final class ChatGPTAPI: @unchecked Sendable {
     // actor 올 수 있음 / let만 올 수 있음 / var 오지 못함
     
     // @unchecked 특정 타입이 추가적인 체크 없이 동시성 경계를 통과할 수있는 것으로 간주
-    
+    private let type: Consts.Places
     private let systemMessage: Message
     private let temperature: Double
     // 높을수록 더 다양하고 무작위해짐
@@ -60,16 +60,15 @@ final class ChatGPTAPI: @unchecked Sendable {
         ]
     }
     
-    init(apiKey: String, model: String = "gpt-3.5-turbo", systemPrompt: String = SystemPrompt.immigrationOfficer, temperature: Double = 0.5) {
+    init(apiKey: String, model: String = "gpt-3.5-turbo", temperature: Double = 0.5, type: Consts.Places) {
+        self.type = type
         self.apiKey = apiKey
         self.model = model
-        self.systemMessage = .init(role: "system", content: systemPrompt)
+        let definition = SystemPrompt.barista
+        self.systemMessage = .init(role: "system", content: SystemPrompt.definition[type] ?? definition)
         // systemPrompt: 역할 지정
         self.temperature = temperature
-
-  
-        
-        
+        self.loadMessages()
 
 
     }
@@ -101,19 +100,22 @@ final class ChatGPTAPI: @unchecked Sendable {
     
     private func saveMessages(messages: [Message]) {
         if let encoded = try? JSONEncoder().encode(messages){
-            PreferenceDataUtils.setData(value: encoded, key: Consts.SaveKey.messages.rawValue)
+            PreferenceDataUtils.setData(value: encoded, key: self.type)
         }
     }
     
-    private func loadMessages() {
-        if let data = PreferenceDataUtils.getData(key: Consts.SaveKey.messages.rawValue),
-           let messages = try? JSONDecoder().decode([Message].self, from: data) {
-            self.historyList.messages = messages
+    @discardableResult
+    private func loadMessages() -> [Message]? {
+        guard let data = PreferenceDataUtils.getData(key: self.type),
+           let messages = try? JSONDecoder().decode([Message].self, from: data) else {
+            return nil
         }
+        self.historyList.messages = messages
+        return messages
     }
     
     func deleteMessages() {
-        PreferenceDataUtils.removeObject(key: Consts.SaveKey.messages.rawValue)
+        PreferenceDataUtils.removeObject(key: self.type)
         self.historyList.messages = []
     }
     
@@ -122,13 +124,12 @@ final class ChatGPTAPI: @unchecked Sendable {
     }
     
     func getLastMessage()->Message? {
-    
-        if historyList.messages.isEmpty,
-           historyList.messages.count >= 2  {
-            loadMessages()
+        let messages = historyList.messages
+        guard !historyList.messages.isEmpty,
+           historyList.messages.count >= 2 else {
+            return nil
         }
-        
-        var messages = historyList.messages
+
         return messages.last
     }
 

@@ -78,8 +78,13 @@ extension HistoryListCollectionViewCell {
         ])
     }
 
-    func setup(message: Message) {
-        roleLabel.text = message.role == "assistant" ? "Tamsjiro (immigration officer)" : "User"
+    func setup(message: Message, type: Consts.Places) {
+        if let role = Consts.role[type] {
+            roleLabel.text = message.role == "user" ? "User" : "\(role[0])-\(role[1])"
+        } else {
+            roleLabel.text = message.role == "user" ? "User" : "ChatGPT"
+        }
+        
         contentLabel.text = message.content
     }
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7B0CEF0F2A14931C00D00081 /* TTSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0CEF0E2A14931C00D00081 /* TTSManager.swift */; };
-		7B9EC2342A1B227E005371D0 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2332A1B227E005371D0 /* Consts.swift */; };
 		7B9EC2382A1B2906005371D0 /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2372A1B2906005371D0 /* HistoryListViewController.swift */; };
 		7B9EC23A2A1B29C5005371D0 /* UILabel+Super.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2392A1B29C5005371D0 /* UILabel+Super.swift */; };
 		7B9EC23C2A1B2C10005371D0 /* UIFont+Super.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC23B2A1B2C10005371D0 /* UIFont+Super.swift */; };
@@ -28,6 +27,7 @@
 		7BC841902A174CE40011221C /* ChatGPTModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC8418F2A174CE40011221C /* ChatGPTModels.swift */; };
 		7BC841922A1768D50011221C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC841912A1768D50011221C /* ViewModel.swift */; };
 		7BDA0C612A1D88990081ED4A /* MainContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA0C602A1D88990081ED4A /* MainContentModel.swift */; };
+		7BDA0C632A1D8BF90081ED4A /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA0C622A1D8BF90081ED4A /* Consts.swift */; };
 		7BFA24D92A13451000A6A444 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24D82A13451000A6A444 /* AppDelegate.swift */; };
 		7BFA24DB2A13451000A6A444 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24DA2A13451000A6A444 /* SceneDelegate.swift */; };
 		7BFA24DD2A13451000A6A444 /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24DC2A13451000A6A444 /* SectionViewController.swift */; };
@@ -39,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		7B0CEF0E2A14931C00D00081 /* TTSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSManager.swift; sourceTree = "<group>"; };
-		7B9EC2332A1B227E005371D0 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		7B9EC2372A1B2906005371D0 /* HistoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListViewController.swift; sourceTree = "<group>"; };
 		7B9EC2392A1B29C5005371D0 /* UILabel+Super.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Super.swift"; sourceTree = "<group>"; };
 		7B9EC23B2A1B2C10005371D0 /* UIFont+Super.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Super.swift"; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		7BC8418F2A174CE40011221C /* ChatGPTModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTModels.swift; sourceTree = "<group>"; };
 		7BC841912A1768D50011221C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7BDA0C602A1D88990081ED4A /* MainContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentModel.swift; sourceTree = "<group>"; };
+		7BDA0C622A1D8BF90081ED4A /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		7BFA24D52A13451000A6A444 /* SpeechRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BFA24D82A13451000A6A444 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BFA24DA2A13451000A6A444 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				7B9EC2442A1B335A005371D0 /* AppAppearance.swift */,
-				7B9EC2332A1B227E005371D0 /* Consts.swift */,
 				7B9EC2482A1B3EBC005371D0 /* PreferenceDataUtils.swift */,
 				7BC5346E2A1C77110015F3B4 /* UIColor+Super.swift */,
 				7BC5346C2A1C770A0015F3B4 /* UIColor+Utils.swift */,
@@ -123,6 +122,7 @@
 				7B9EC2462A1B394C005371D0 /* UIImage+Utils.swift */,
 				7B9EC2392A1B29C5005371D0 /* UILabel+Super.swift */,
 				7B9EC2422A1B2C86005371D0 /* UILabel+Utils.swift */,
+				7BDA0C622A1D8BF90081ED4A /* Consts.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -130,8 +130,7 @@
 		7B9EC2412A1B2C58005371D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7BA686E02A1CAB2C0021FE19 /* MainViewController.swift */,
-				7BA686E22A1CABF00021FE19 /* MainCollectionViewCell.swift */,
+				7BDA0C642A1D918B0081ED4A /* Main */,
 				7BFA24DC2A13451000A6A444 /* SectionViewController.swift */,
 				7BC5346B2A1C57430015F3B4 /* HistoryList */,
 				7BA686DC2A1C97BA0021FE19 /* PopupViewController.swift */,
@@ -147,6 +146,15 @@
 				7BC534692A1C51D80015F3B4 /* HistoryListCollectionViewCell.swift */,
 			);
 			path = HistoryList;
+			sourceTree = "<group>";
+		};
+		7BDA0C642A1D918B0081ED4A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7BA686E02A1CAB2C0021FE19 /* MainViewController.swift */,
+				7BA686E22A1CABF00021FE19 /* MainCollectionViewCell.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		7BFA24CC2A13451000A6A444 = {
@@ -256,9 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BFA24F02A1356BF00A6A444 /* SpeechRecognizer.swift in Sources */,
-				7B9EC2342A1B227E005371D0 /* Consts.swift in Sources */,
 				7B9EC24B2A1B4E64005371D0 /* SystemPrompt.swift in Sources */,
 				7B9EC2382A1B2906005371D0 /* HistoryListViewController.swift in Sources */,
+				7BDA0C632A1D8BF90081ED4A /* Consts.swift in Sources */,
 				7B9EC23C2A1B2C10005371D0 /* UIFont+Super.swift in Sources */,
 				7BC841922A1768D50011221C /* ViewModel.swift in Sources */,
 				7B0CEF0F2A14931C00D00081 /* TTSManager.swift in Sources */,
