@@ -86,7 +86,6 @@ class HistoryListViewController: UIViewController {
             navigationItem.title = "대화 리스트"
             return
         }
-        let job = role[0]
         let name = role[1]
         navigationItem.titleView = setTitle(title: "대화리스트", subTitle: name)
     }

@@ -40,6 +40,7 @@ Second, you go through the process of verifying the guest's passport. If everyth
 Third, if the guest has a reservation, you check the reservation status, and if there are no issues, you proceed to the next step.
 Fourth, you hand over the room key to the guest and ask about their day, how they feel, and if anything eventful happened.
 Lastly, you conclude by wishing the guest a pleasant day tomorrow and add "Finish" as the final sentence.
+Hotel's name is CUDO Cummunication.
 """
     
     static let dog = """
