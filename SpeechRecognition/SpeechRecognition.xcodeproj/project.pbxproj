@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7B0CEF0F2A14931C00D00081 /* TTSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0CEF0E2A14931C00D00081 /* TTSManager.swift */; };
+		7B1E23F42A427FE800D4DA52 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E23F32A427FE800D4DA52 /* LaunchViewController.swift */; };
+		7B1E23F62A42817400D4DA52 /* SRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E23F52A42817400D4DA52 /* SRViewController.swift */; };
+		7B1E23F82A42828700D4DA52 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E23F72A42828700D4DA52 /* PermissionViewController.swift */; };
 		7B9EC2382A1B2906005371D0 /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2372A1B2906005371D0 /* HistoryListViewController.swift */; };
 		7B9EC23A2A1B29C5005371D0 /* UILabel+Super.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2392A1B29C5005371D0 /* UILabel+Super.swift */; };
 		7B9EC23C2A1B2C10005371D0 /* UIFont+Super.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC23B2A1B2C10005371D0 /* UIFont+Super.swift */; };
@@ -39,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		7B0CEF0E2A14931C00D00081 /* TTSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSManager.swift; sourceTree = "<group>"; };
+		7B1E23F32A427FE800D4DA52 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		7B1E23F52A42817400D4DA52 /* SRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRViewController.swift; sourceTree = "<group>"; };
+		7B1E23F72A42828700D4DA52 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		7B9EC2372A1B2906005371D0 /* HistoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListViewController.swift; sourceTree = "<group>"; };
 		7B9EC2392A1B29C5005371D0 /* UILabel+Super.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Super.swift"; sourceTree = "<group>"; };
 		7B9EC23B2A1B2C10005371D0 /* UIFont+Super.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Super.swift"; sourceTree = "<group>"; };
@@ -83,6 +89,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B1E23F22A427FD500D4DA52 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				7BFA24E62A13451100A6A444 /* LaunchScreen.storyboard */,
+				7B1E23F32A427FE800D4DA52 /* LaunchViewController.swift */,
+				7B1E23F72A42828700D4DA52 /* PermissionViewController.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		7B9EC23D2A1B2C27005371D0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,11 +146,13 @@
 		7B9EC2412A1B2C58005371D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B1E23F22A427FD500D4DA52 /* Launch */,
 				7BDA0C642A1D918B0081ED4A /* Main */,
 				7BFA24DC2A13451000A6A444 /* SectionViewController.swift */,
 				7BC5346B2A1C57430015F3B4 /* HistoryList */,
 				7BA686DC2A1C97BA0021FE19 /* PopupViewController.swift */,
 				7BA686DE2A1C98050021FE19 /* UIButton.swift */,
+				7B1E23F52A42817400D4DA52 /* SRViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,7 +202,6 @@
 				7BFA24D82A13451000A6A444 /* AppDelegate.swift */,
 				7BFA24DA2A13451000A6A444 /* SceneDelegate.swift */,
 				7BFA24E42A13451100A6A444 /* Assets.xcassets */,
-				7BFA24E62A13451100A6A444 /* LaunchScreen.storyboard */,
 				7BFA24E92A13451100A6A444 /* Info.plist */,
 				7BFA24E12A13451000A6A444 /* SpeechRecognition.xcdatamodeld */,
 			);
@@ -276,11 +293,13 @@
 				7BFA24D92A13451000A6A444 /* AppDelegate.swift in Sources */,
 				7B9EC2492A1B3EBC005371D0 /* PreferenceDataUtils.swift in Sources */,
 				7BA686DD2A1C97BA0021FE19 /* PopupViewController.swift in Sources */,
+				7B1E23F62A42817400D4DA52 /* SRViewController.swift in Sources */,
 				7B9EC2452A1B335A005371D0 /* AppAppearance.swift in Sources */,
 				7BC8418E2A17399B0011221C /* ChatGPT.swift in Sources */,
 				7BC5346F2A1C77110015F3B4 /* UIColor+Super.swift in Sources */,
 				7BA686E12A1CAB2C0021FE19 /* MainViewController.swift in Sources */,
 				7BA686DF2A1C98050021FE19 /* UIButton.swift in Sources */,
+				7B1E23F82A42828700D4DA52 /* PermissionViewController.swift in Sources */,
 				7B9EC2472A1B394C005371D0 /* UIImage+Utils.swift in Sources */,
 				7BC841902A174CE40011221C /* ChatGPTModels.swift in Sources */,
 				7BC5346D2A1C770A0015F3B4 /* UIColor+Utils.swift in Sources */,
@@ -288,6 +307,7 @@
 				7BFA24DB2A13451000A6A444 /* SceneDelegate.swift in Sources */,
 				7BA686E32A1CABF00021FE19 /* MainCollectionViewCell.swift in Sources */,
 				7B9EC2432A1B2C86005371D0 /* UILabel+Utils.swift in Sources */,
+				7B1E23F42A427FE800D4DA52 /* LaunchViewController.swift in Sources */,
 				7BFA24E32A13451000A6A444 /* SpeechRecognition.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

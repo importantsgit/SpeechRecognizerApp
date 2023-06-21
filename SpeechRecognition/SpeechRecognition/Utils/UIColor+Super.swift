@@ -8,7 +8,7 @@
 import UIKit
 
 enum MyColor {
-    static let accentColor = UIColor(hex: "#FF3B30")
+    static let accentColor = UIColor(hex: "#049F9F")
     static let backgroundColor = UIColor(hex: "#FAFAFA")
     static let border = UIColor(hex: "#CDCDCD")
     static let blurBackgroundColor = UIColor.black.withAlphaComponent(0.8)

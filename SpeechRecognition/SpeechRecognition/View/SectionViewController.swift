@@ -52,11 +52,16 @@ class SectionViewController: UIViewController {
     
     lazy var button: UIButton = {
         var button = UIButton()
-        button.backgroundColor = .systemRed
-        button.layer.borderColor = UIColor.black.cgColor
-        button.layer.borderWidth = 2.0
+        button.backgroundColor = UIColor(hex: "#028888")
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.2
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
+        var configuration = UIButton.Configuration.plain()
+        configuration.image = UIImage(named: "speak")
+        configuration.imagePlacement = .all
+        button.configuration = configuration
+    
         return button
     }()
     
@@ -188,7 +193,7 @@ class SectionViewController: UIViewController {
         
         [userView, chatView].forEach{
             $0.backgroundColor = .systemBackground
-            $0.layer.cornerRadius = 12.0
+            $0.layer.cornerRadius = 4.0
             $0.layer.borderColor = UIColor.lightGray.cgColor
             $0.layer.borderWidth = 0.5
             $0.layer.shadowOpacity = 0.2
@@ -262,7 +267,7 @@ class SectionViewController: UIViewController {
             button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -32.0),
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             button.widthAnchor.constraint(equalToConstant: buttonSize),
-            button.heightAnchor.constraint(equalToConstant: buttonSize)
+            button.heightAnchor.constraint(equalToConstant: buttonSize),
         ])
         
         button.layer.cornerRadius = buttonCornerRadius
@@ -283,7 +288,7 @@ class SectionViewController: UIViewController {
                 str += await vm.send(text:speechRecognizer.transcript)
                 chatGPTLabel.text = str
             }
-            button.backgroundColor = .systemRed
+            button.backgroundColor = UIColor(hex: "#028888")
         }
     }
     
@@ -310,8 +315,4 @@ class SectionViewController: UIViewController {
         userLabel.text = "가볍게 인사해주세요!"
         chatGPTLabel.text = "당신과 대화할 준비가 되어 있답니다."
     }
-}
-
-enum SectionViewContent {
-    //static let
 }
