@@ -12,6 +12,8 @@ struct MainContentModel {
     let title: String
     let type: Consts.Places
     
+    /// MainView ChatGTP list
+    /// insert your type
     static let collection: [MainContentModel] = [
         .init(image: UIImage(named: "airport"), title: "공항", type: .airport),
         .init(image: UIImage(named: "cafe"), title: "카페", type: .cafe),
