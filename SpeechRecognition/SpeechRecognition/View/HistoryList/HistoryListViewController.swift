@@ -12,6 +12,7 @@ class HistoryListViewController: UIViewController {
     private var padding: CGFloat = 32.0
     var messages: [Message]
     var type: Consts.Places
+    var textSpeaker: TextSpeaker
     
     private lazy var collectionView: UICollectionView = {
         
@@ -36,14 +37,22 @@ class HistoryListViewController: UIViewController {
     var bottomView = UIView()
     
     lazy var muteButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "", image: UIImage(systemName: "speaker.zzz"), target: self, action: #selector(muteButtonItemTapped))
-        
-        return button
+        if #available(iOS 16.0, *) {
+            return UIBarButtonItem(title: "", image: UIImage(systemName: "speaker.zzz"), target: self, action: #selector(muteButtonItemTapped))
+        } else {
+            let muteButton = UIButton(type: .system)
+            muteButton.setImage(UIImage(systemName: "speaker.zzz"), for: .normal)
+            muteButton.addTarget(self, action: #selector(muteButtonItemTapped), for: .touchUpInside)
+            let button = UIBarButtonItem(customView: muteButton)
+            
+            return button
+        }
     }()
     
-    init(messages: [Message], type: Consts.Places) {
+    init(messages: [Message], type: Consts.Places, textSpeaker: TextSpeaker) {
         self.messages = messages
         self.type = type
+        self.textSpeaker = textSpeaker
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -60,7 +69,9 @@ class HistoryListViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        TTSManager.shared.stop()
+        Task {
+            await textSpeaker.stop()
+        }
     }
     
     private func createLayout() -> UICollectionViewLayout {
@@ -149,7 +160,7 @@ class HistoryListViewController: UIViewController {
     }
     
     @objc func muteButtonItemTapped() {
-        TTSManager.shared.stop()
+        
     }
 }
 
@@ -176,6 +187,8 @@ extension HistoryListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let message = messages[indexPath.row]
-        TTSManager.shared.play(message.content)
+        Task {
+            await textSpeaker.play(message.content)
+        }
     }
 }
