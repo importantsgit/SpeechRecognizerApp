@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B0CEF0F2A14931C00D00081 /* TTSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0CEF0E2A14931C00D00081 /* TTSManager.swift */; };
+		7B0CEF0F2A14931C00D00081 /* TextSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0CEF0E2A14931C00D00081 /* TextSpeaker.swift */; };
 		7B1E23F42A427FE800D4DA52 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E23F32A427FE800D4DA52 /* LaunchViewController.swift */; };
-		7B1E23F62A42817400D4DA52 /* SRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E23F52A42817400D4DA52 /* SRViewController.swift */; };
+		7B1E23F62A42817400D4DA52 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E23F52A42817400D4DA52 /* BaseViewController.swift */; };
 		7B1E23F82A42828700D4DA52 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1E23F72A42828700D4DA52 /* PermissionViewController.swift */; };
 		7B9EC2382A1B2906005371D0 /* HistoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2372A1B2906005371D0 /* HistoryListViewController.swift */; };
 		7B9EC23A2A1B29C5005371D0 /* UILabel+Super.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2392A1B29C5005371D0 /* UILabel+Super.swift */; };
@@ -17,16 +17,16 @@
 		7B9EC2432A1B2C86005371D0 /* UILabel+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2422A1B2C86005371D0 /* UILabel+Utils.swift */; };
 		7B9EC2452A1B335A005371D0 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2442A1B335A005371D0 /* AppAppearance.swift */; };
 		7B9EC2472A1B394C005371D0 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2462A1B394C005371D0 /* UIImage+Utils.swift */; };
-		7B9EC2492A1B3EBC005371D0 /* PreferenceDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2482A1B3EBC005371D0 /* PreferenceDataUtils.swift */; };
+		7B9EC2492A1B3EBC005371D0 /* PreferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC2482A1B3EBC005371D0 /* PreferenceService.swift */; };
 		7B9EC24B2A1B4E64005371D0 /* SystemPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9EC24A2A1B4E64005371D0 /* SystemPrompt.swift */; };
-		7BA686DD2A1C97BA0021FE19 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA686DC2A1C97BA0021FE19 /* PopupViewController.swift */; };
-		7BA686DF2A1C98050021FE19 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA686DE2A1C98050021FE19 /* UIButton.swift */; };
+		7BA686DD2A1C97BA0021FE19 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA686DC2A1C97BA0021FE19 /* Popup.swift */; };
+		7BA686DF2A1C98050021FE19 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA686DE2A1C98050021FE19 /* CustomButton.swift */; };
 		7BA686E12A1CAB2C0021FE19 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA686E02A1CAB2C0021FE19 /* MainViewController.swift */; };
 		7BA686E32A1CABF00021FE19 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA686E22A1CABF00021FE19 /* MainCollectionViewCell.swift */; };
 		7BC5346A2A1C51D80015F3B4 /* HistoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC534692A1C51D80015F3B4 /* HistoryListCollectionViewCell.swift */; };
 		7BC5346D2A1C770A0015F3B4 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5346C2A1C770A0015F3B4 /* UIColor+Utils.swift */; };
 		7BC5346F2A1C77110015F3B4 /* UIColor+Super.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC5346E2A1C77110015F3B4 /* UIColor+Super.swift */; };
-		7BC8418E2A17399B0011221C /* ChatGPT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC8418D2A17399B0011221C /* ChatGPT.swift */; };
+		7BC8418E2A17399B0011221C /* ChatGPTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC8418D2A17399B0011221C /* ChatGPTService.swift */; };
 		7BC841902A174CE40011221C /* ChatGPTModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC8418F2A174CE40011221C /* ChatGPTModels.swift */; };
 		7BC841922A1768D50011221C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC841912A1768D50011221C /* ViewModel.swift */; };
 		7BDA0C612A1D88990081ED4A /* MainContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA0C602A1D88990081ED4A /* MainContentModel.swift */; };
@@ -34,16 +34,28 @@
 		7BFA24D92A13451000A6A444 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24D82A13451000A6A444 /* AppDelegate.swift */; };
 		7BFA24DB2A13451000A6A444 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24DA2A13451000A6A444 /* SceneDelegate.swift */; };
 		7BFA24DD2A13451000A6A444 /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24DC2A13451000A6A444 /* SectionViewController.swift */; };
-		7BFA24E32A13451000A6A444 /* SpeechRecognition.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24E12A13451000A6A444 /* SpeechRecognition.xcdatamodeld */; };
 		7BFA24E52A13451100A6A444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BFA24E42A13451100A6A444 /* Assets.xcassets */; };
 		7BFA24E82A13451100A6A444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFA24E62A13451100A6A444 /* LaunchScreen.storyboard */; };
 		7BFA24F02A1356BF00A6A444 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA24EF2A1356BF00A6A444 /* SpeechRecognizer.swift */; };
+		A584AD9B2BF64DF900CEB5F0 /* Voice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A584AD9A2BF64DF900CEB5F0 /* Voice.swift */; };
+		A584ADA52BF6592200CEB5F0 /* TTSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A584ADA42BF6592200CEB5F0 /* TTSTest.swift */; };
+		A584ADAD2BF65ACA00CEB5F0 /* CustomUtterance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A584ADAC2BF65ACA00CEB5F0 /* CustomUtterance.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A584ADA62BF6592200CEB5F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BFA24CD2A13451000A6A444 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BFA24D42A13451000A6A444;
+			remoteInfo = SpeechRecognition;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		7B0CEF0E2A14931C00D00081 /* TTSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSManager.swift; sourceTree = "<group>"; };
+		7B0CEF0E2A14931C00D00081 /* TextSpeaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSpeaker.swift; sourceTree = "<group>"; };
 		7B1E23F32A427FE800D4DA52 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		7B1E23F52A42817400D4DA52 /* SRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRViewController.swift; sourceTree = "<group>"; };
+		7B1E23F52A42817400D4DA52 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7B1E23F72A42828700D4DA52 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		7B9EC2372A1B2906005371D0 /* HistoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListViewController.swift; sourceTree = "<group>"; };
 		7B9EC2392A1B29C5005371D0 /* UILabel+Super.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Super.swift"; sourceTree = "<group>"; };
@@ -51,10 +63,10 @@
 		7B9EC2422A1B2C86005371D0 /* UILabel+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Utils.swift"; sourceTree = "<group>"; };
 		7B9EC2442A1B335A005371D0 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		7B9EC2462A1B394C005371D0 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
-		7B9EC2482A1B3EBC005371D0 /* PreferenceDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceDataUtils.swift; sourceTree = "<group>"; };
+		7B9EC2482A1B3EBC005371D0 /* PreferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceService.swift; sourceTree = "<group>"; };
 		7B9EC24A2A1B4E64005371D0 /* SystemPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPrompt.swift; sourceTree = "<group>"; };
-		7BA686DC2A1C97BA0021FE19 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
-		7BA686DE2A1C98050021FE19 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		7BA686DC2A1C97BA0021FE19 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		7BA686DE2A1C98050021FE19 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		7BA686E02A1CAB2C0021FE19 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7BA686E22A1CABF00021FE19 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		7BC534692A1C51D80015F3B4 /* HistoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -62,7 +74,7 @@
 		7BC5346E2A1C77110015F3B4 /* UIColor+Super.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Super.swift"; sourceTree = "<group>"; };
 		7BC8418B2A1711C70011221C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7BC8418C2A1711FF0011221C /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		7BC8418D2A17399B0011221C /* ChatGPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPT.swift; sourceTree = "<group>"; };
+		7BC8418D2A17399B0011221C /* ChatGPTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTService.swift; sourceTree = "<group>"; };
 		7BC8418F2A174CE40011221C /* ChatGPTModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTModels.swift; sourceTree = "<group>"; };
 		7BC841912A1768D50011221C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7BDA0C602A1D88990081ED4A /* MainContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentModel.swift; sourceTree = "<group>"; };
@@ -71,15 +83,25 @@
 		7BFA24D82A13451000A6A444 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BFA24DA2A13451000A6A444 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7BFA24DC2A13451000A6A444 /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
-		7BFA24E22A13451000A6A444 /* SpeechRecognition.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpeechRecognition.xcdatamodel; sourceTree = "<group>"; };
 		7BFA24E42A13451100A6A444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BFA24E72A13451100A6A444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BFA24E92A13451100A6A444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BFA24EF2A1356BF00A6A444 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		A584AD9A2BF64DF900CEB5F0 /* Voice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voice.swift; sourceTree = "<group>"; };
+		A584ADA22BF6592200CEB5F0 /* TTSTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTSTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A584ADA42BF6592200CEB5F0 /* TTSTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSTest.swift; sourceTree = "<group>"; };
+		A584ADAC2BF65ACA00CEB5F0 /* CustomUtterance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUtterance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		7BFA24D22A13451000A6A444 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A584AD9F2BF6592200CEB5F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -92,7 +114,6 @@
 		7B1E23F22A427FD500D4DA52 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				7BFA24E62A13451100A6A444 /* LaunchScreen.storyboard */,
 				7B1E23F32A427FE800D4DA52 /* LaunchViewController.swift */,
 				7B1E23F72A42828700D4DA52 /* PermissionViewController.swift */,
 			);
@@ -102,9 +123,11 @@
 		7B9EC23D2A1B2C27005371D0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A584AD992BF64DF100CEB5F0 /* Type */,
 				7BFA24EF2A1356BF00A6A444 /* SpeechRecognizer.swift */,
-				7B0CEF0E2A14931C00D00081 /* TTSManager.swift */,
-				7BC8418D2A17399B0011221C /* ChatGPT.swift */,
+				7B0CEF0E2A14931C00D00081 /* TextSpeaker.swift */,
+				7B9EC2482A1B3EBC005371D0 /* PreferenceService.swift */,
+				7BC8418D2A17399B0011221C /* ChatGPTService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -130,8 +153,6 @@
 		7B9EC2402A1B2C42005371D0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				7B9EC2442A1B335A005371D0 /* AppAppearance.swift */,
-				7B9EC2482A1B3EBC005371D0 /* PreferenceDataUtils.swift */,
 				7BC5346E2A1C77110015F3B4 /* UIColor+Super.swift */,
 				7BC5346C2A1C770A0015F3B4 /* UIColor+Utils.swift */,
 				7B9EC23B2A1B2C10005371D0 /* UIFont+Super.swift */,
@@ -146,13 +167,12 @@
 		7B9EC2412A1B2C58005371D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B9EC23E2A1B2C30005371D0 /* ViewModel */,
+				A584AD972BF64C3F00CEB5F0 /* Base */,
 				7B1E23F22A427FD500D4DA52 /* Launch */,
 				7BDA0C642A1D918B0081ED4A /* Main */,
-				7BFA24DC2A13451000A6A444 /* SectionViewController.swift */,
+				A584AD982BF64D8F00CEB5F0 /* Detail */,
 				7BC5346B2A1C57430015F3B4 /* HistoryList */,
-				7BA686DC2A1C97BA0021FE19 /* PopupViewController.swift */,
-				7BA686DE2A1C98050021FE19 /* UIButton.swift */,
-				7B1E23F52A42817400D4DA52 /* SRViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				7BFA24D72A13451000A6A444 /* SpeechRecognition */,
+				A584ADA32BF6592200CEB5F0 /* TTSTest */,
 				7BFA24D62A13451000A6A444 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -187,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				7BFA24D52A13451000A6A444 /* SpeechRecognition.app */,
+				A584ADA22BF6592200CEB5F0 /* TTSTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,18 +216,69 @@
 		7BFA24D72A13451000A6A444 /* SpeechRecognition */ = {
 			isa = PBXGroup;
 			children = (
-				7B9EC2402A1B2C42005371D0 /* Utils */,
+				A584AD9C2BF658C500CEB5F0 /* Source */,
+				A584AD962BF64C0300CEB5F0 /* App */,
 				7B9EC2412A1B2C58005371D0 /* View */,
 				7B9EC23D2A1B2C27005371D0 /* Service */,
-				7B9EC23E2A1B2C30005371D0 /* ViewModel */,
 				7B9EC23F2A1B2C3A005371D0 /* Model */,
-				7BFA24D82A13451000A6A444 /* AppDelegate.swift */,
-				7BFA24DA2A13451000A6A444 /* SceneDelegate.swift */,
-				7BFA24E42A13451100A6A444 /* Assets.xcassets */,
+				7B9EC2402A1B2C42005371D0 /* Utils */,
 				7BFA24E92A13451100A6A444 /* Info.plist */,
-				7BFA24E12A13451000A6A444 /* SpeechRecognition.xcdatamodeld */,
 			);
 			path = SpeechRecognition;
+			sourceTree = "<group>";
+		};
+		A584AD962BF64C0300CEB5F0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7BFA24E62A13451100A6A444 /* LaunchScreen.storyboard */,
+				7BFA24D82A13451000A6A444 /* AppDelegate.swift */,
+				7B9EC2442A1B335A005371D0 /* AppAppearance.swift */,
+				7BFA24DA2A13451000A6A444 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A584AD972BF64C3F00CEB5F0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7B1E23F52A42817400D4DA52 /* BaseViewController.swift */,
+				7BA686DC2A1C97BA0021FE19 /* Popup.swift */,
+				7BA686DE2A1C98050021FE19 /* CustomButton.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		A584AD982BF64D8F00CEB5F0 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				7BFA24DC2A13451000A6A444 /* SectionViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		A584AD992BF64DF100CEB5F0 /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				A584AD9A2BF64DF900CEB5F0 /* Voice.swift */,
+				A584ADAC2BF65ACA00CEB5F0 /* CustomUtterance.swift */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
+		A584AD9C2BF658C500CEB5F0 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				7BFA24E42A13451100A6A444 /* Assets.xcassets */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		A584ADA32BF6592200CEB5F0 /* TTSTest */ = {
+			isa = PBXGroup;
+			children = (
+				A584ADA42BF6592200CEB5F0 /* TTSTest.swift */,
+			);
+			path = TTSTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +301,24 @@
 			productReference = 7BFA24D52A13451000A6A444 /* SpeechRecognition.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A584ADA12BF6592200CEB5F0 /* TTSTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A584ADA82BF6592200CEB5F0 /* Build configuration list for PBXNativeTarget "TTSTest" */;
+			buildPhases = (
+				A584AD9E2BF6592200CEB5F0 /* Sources */,
+				A584AD9F2BF6592200CEB5F0 /* Frameworks */,
+				A584ADA02BF6592200CEB5F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A584ADA72BF6592200CEB5F0 /* PBXTargetDependency */,
+			);
+			name = TTSTest;
+			productName = TTSTest;
+			productReference = A584ADA22BF6592200CEB5F0 /* TTSTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -235,11 +326,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					7BFA24D42A13451000A6A444 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					A584ADA12BF6592200CEB5F0 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 7BFA24D42A13451000A6A444;
 					};
 				};
 			};
@@ -259,6 +354,7 @@
 			projectRoot = "";
 			targets = (
 				7BFA24D42A13451000A6A444 /* SpeechRecognition */,
+				A584ADA12BF6592200CEB5F0 /* TTSTest */,
 			);
 		};
 /* End PBXProject section */
@@ -270,6 +366,13 @@
 			files = (
 				7BFA24E82A13451100A6A444 /* LaunchScreen.storyboard in Resources */,
 				7BFA24E52A13451100A6A444 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A584ADA02BF6592200CEB5F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,33 +389,50 @@
 				7BDA0C632A1D8BF90081ED4A /* Consts.swift in Sources */,
 				7B9EC23C2A1B2C10005371D0 /* UIFont+Super.swift in Sources */,
 				7BC841922A1768D50011221C /* ViewModel.swift in Sources */,
-				7B0CEF0F2A14931C00D00081 /* TTSManager.swift in Sources */,
+				7B0CEF0F2A14931C00D00081 /* TextSpeaker.swift in Sources */,
 				7BFA24DD2A13451000A6A444 /* SectionViewController.swift in Sources */,
 				7BDA0C612A1D88990081ED4A /* MainContentModel.swift in Sources */,
 				7B9EC23A2A1B29C5005371D0 /* UILabel+Super.swift in Sources */,
 				7BFA24D92A13451000A6A444 /* AppDelegate.swift in Sources */,
-				7B9EC2492A1B3EBC005371D0 /* PreferenceDataUtils.swift in Sources */,
-				7BA686DD2A1C97BA0021FE19 /* PopupViewController.swift in Sources */,
-				7B1E23F62A42817400D4DA52 /* SRViewController.swift in Sources */,
+				7B9EC2492A1B3EBC005371D0 /* PreferenceService.swift in Sources */,
+				7BA686DD2A1C97BA0021FE19 /* Popup.swift in Sources */,
+				7B1E23F62A42817400D4DA52 /* BaseViewController.swift in Sources */,
 				7B9EC2452A1B335A005371D0 /* AppAppearance.swift in Sources */,
-				7BC8418E2A17399B0011221C /* ChatGPT.swift in Sources */,
+				7BC8418E2A17399B0011221C /* ChatGPTService.swift in Sources */,
 				7BC5346F2A1C77110015F3B4 /* UIColor+Super.swift in Sources */,
 				7BA686E12A1CAB2C0021FE19 /* MainViewController.swift in Sources */,
-				7BA686DF2A1C98050021FE19 /* UIButton.swift in Sources */,
+				7BA686DF2A1C98050021FE19 /* CustomButton.swift in Sources */,
 				7B1E23F82A42828700D4DA52 /* PermissionViewController.swift in Sources */,
 				7B9EC2472A1B394C005371D0 /* UIImage+Utils.swift in Sources */,
 				7BC841902A174CE40011221C /* ChatGPTModels.swift in Sources */,
 				7BC5346D2A1C770A0015F3B4 /* UIColor+Utils.swift in Sources */,
+				A584ADAD2BF65ACA00CEB5F0 /* CustomUtterance.swift in Sources */,
 				7BC5346A2A1C51D80015F3B4 /* HistoryListCollectionViewCell.swift in Sources */,
 				7BFA24DB2A13451000A6A444 /* SceneDelegate.swift in Sources */,
 				7BA686E32A1CABF00021FE19 /* MainCollectionViewCell.swift in Sources */,
 				7B9EC2432A1B2C86005371D0 /* UILabel+Utils.swift in Sources */,
 				7B1E23F42A427FE800D4DA52 /* LaunchViewController.swift in Sources */,
-				7BFA24E32A13451000A6A444 /* SpeechRecognition.xcdatamodeld in Sources */,
+				A584AD9B2BF64DF900CEB5F0 /* Voice.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A584AD9E2BF6592200CEB5F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A584ADA52BF6592200CEB5F0 /* TTSTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A584ADA72BF6592200CEB5F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BFA24D42A13451000A6A444 /* SpeechRecognition */;
+			targetProxy = A584ADA62BF6592200CEB5F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7BFA24E62A13451100A6A444 /* LaunchScreen.storyboard */ = {
@@ -452,12 +572,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9Y3C29YBST;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpeechRecognition/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,12 +601,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9Y3C29YBST;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SpeechRecognition/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -495,6 +619,59 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A584ADA92BF6592200CEB5F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9Y3C29YBST;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jaehun.TTSTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpeechRecognition.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SpeechRecognition";
+			};
+			name = Debug;
+		};
+		A584ADAA2BF6592200CEB5F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9Y3C29YBST;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jaehun.TTSTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpeechRecognition.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SpeechRecognition";
 			};
 			name = Release;
 		};
@@ -519,20 +696,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-/* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7BFA24E12A13451000A6A444 /* SpeechRecognition.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7BFA24E22A13451000A6A444 /* SpeechRecognition.xcdatamodel */,
+		A584ADA82BF6592200CEB5F0 /* Build configuration list for PBXNativeTarget "TTSTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A584ADA92BF6592200CEB5F0 /* Debug */,
+				A584ADAA2BF6592200CEB5F0 /* Release */,
 			);
-			currentVersion = 7BFA24E22A13451000A6A444 /* SpeechRecognition.xcdatamodel */;
-			path = SpeechRecognition.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-/* End XCVersionGroup section */
+/* End XCConfigurationList section */
 	};
 	rootObject = 7BFA24CD2A13451000A6A444 /* Project object */;
 }

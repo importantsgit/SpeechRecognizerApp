@@ -34,9 +34,9 @@ class SectionViewController: UIViewController {
         .setuplabelAlignment(.left)
         .build()
     
+    // 의존성 문제
     var speechRecognizer = SpeechRecognizer()
-    
-    var TextToSpeechManager = TTSManager()
+    var TextToSpeechManager = TextSpeaker()
     
     lazy var resetButtonItem: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(resetButtonItemTapped))
@@ -111,7 +111,10 @@ class SectionViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        TTSManager.shared.stop()
+        Task {
+            await TextToSpeechManager.stop()
+        }
+        
     }
     
     func getLastContent() {
@@ -294,7 +297,7 @@ class SectionViewController: UIViewController {
     
     @objc func listButtonItemTapped() {
         let messages = self.vm.getMessages()
-        let vc = HistoryListViewController(messages: messages, type: self.type)
+        let vc = HistoryListViewController(messages: messages, type: self.type, textSpeaker: TextToSpeechManager)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

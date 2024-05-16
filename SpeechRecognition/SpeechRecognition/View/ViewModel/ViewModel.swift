@@ -11,9 +11,11 @@ import AVKit
 class ViewModel: ObservableObject {
     
     private let api: ChatGPTAPI
+    private let textSpeaker: TextSpeaker
     
-    init(api: ChatGPTAPI) {
+    init(api: ChatGPTAPI, textSpeaker: TextSpeaker = .init()) {
         self.api = api
+        self.textSpeaker = textSpeaker
     }
     
     @MainActor func send(text: String) async -> String {
@@ -31,7 +33,13 @@ class ViewModel: ObservableObject {
             return ""
         }
         
-        TTSManager.shared.play(streamText)
+        do {
+            try await textSpeaker.play(streamText)
+        }
+        catch {
+            print("textSpeaker Error: \(error.localizedDescription)")
+        }
+        
         return streamText
     }
     
