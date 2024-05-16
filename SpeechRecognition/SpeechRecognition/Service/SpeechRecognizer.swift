@@ -12,7 +12,7 @@ import Speech
 // 동시성 프로그래밍에서 가장 주의해야할 것인 Deadlock, race condition을 해결하기 위한 자료형 Actor
 // reference type이고 actor는 한 번에 하나의 작업만 액터의 상태를 변경할 수 있는 형태
 // race condition: 두 개 이상의 프로세스가 공통 자원을 병행적으로(concurrently) 읽거나 쓰는 동작을 할 때, 공용 데이터에 대한 접근이 어떤 순서에 따라 이루어졌는지에 따라 그 실행 결과가 같지 않고 달라지는 상태
-actor SpeechRecognizer: ObservableObject {
+actor SpeechRecognizer {
     enum RecognizerError: Error {
         // 음싱 인식 중 발생할 수 있는 오류를 정의하는 열거형
         case nilRecognizer
