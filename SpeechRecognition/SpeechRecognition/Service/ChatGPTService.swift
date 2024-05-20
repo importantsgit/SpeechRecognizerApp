@@ -60,7 +60,7 @@ final class ChatGPTAPI: @unchecked Sendable {
         ]
     }
     
-    init(apiKey: String, model: String = "gpt-3.5-turbo", temperature: Double = 0.5, type: Consts.Places) {
+    init(apiKey: String, model: String = "gpt-4-turbo", temperature: Double = 0.5, type: Consts.Places) {
         self.type = type
         self.apiKey = apiKey
         self.model = model

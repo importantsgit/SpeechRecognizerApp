@@ -15,7 +15,7 @@ struct CustomUtterance {
     var voice: Voice
     
     init(
-        rate: Float = 1.0,
+        rate: Float = 0.5,
         pitchMultiplier: Float = 1.0,
         postUtteranceDelay: Double = 1.0,
         volume: Float = 1.0,

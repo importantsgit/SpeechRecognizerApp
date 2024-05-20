@@ -188,7 +188,7 @@ extension HistoryListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let message = messages[indexPath.row]
         Task {
-            await textSpeaker.play(message.content)
+            try await textSpeaker.play(message.content)
         }
     }
 }
