@@ -1,4 +1,4 @@
-# SpeechRecognizerApp
+[# SpeechRecognizerApp
 
 1. STT 사용
 - STT를 활용하여 유저의 음성을 텍스트로 변환했습니다.
@@ -9,3 +9,27 @@
 
 3. TTS 사용
 - TTS를 활용하여 텍스트를 읽어 유저가 들을 수 있게 했습니다
+
+(https://www.youtube.com/watch?v=Go4Ml6f0n2A)
+
+## 프로젝트 목적
+
+설문 조사를 통해 40%의 응답자가 회화 영어에 관심은 있지만 학원비가 비싸고 정해진 시간에만 소통이 가능하다는 이유로 회화 영어를 쉽게 접할 수 없다는 결과를 얻었습니다.
+
+사람들이 쉽게 회화 영어를 접할 수 있는 방법을 고민한 끝에, TTS(Text-to-Speech)와 Chat-GPT를 활용하면 시간적, 공간적 제약 없이 쉽게 회화를 즐길 수 있을 것이라는 결론을 내렸습니다.
+
+이에 따라, 이러한 기능을 포함한 프로토타입 앱을 제작했습니다.
+
+## 프로젝트 Flow
+
+1. STT(Speak To Text)를 활용하여 유저의 대화를 텍스트로 변환
+2. 미리 역할(Role)을 지정한 Chat-GPT에게 텍스트에 대한 대답을 POST후, data 반환
+3. data를 TTS(Text To Speak)를 활용하여 사용자에게 Speak
+
+![Group 1000002190.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/850d047e-0435-4193-bdd8-6e20d734ccf6/f072b12e-0d9d-4476-be72-489e27b1f746/Group_1000002190.png)
+
+## 프로젝트 특징
+
+- 직접 커스터마이징한 Yolo v8 모델과 MLModel을 앱에 적용하여 동작시켰습니다.
+- OpenCV를 활용하여 객체의 움직임을 판단하는 로직을 추가했습니다
+- 이를 통해 반려동물 감시 카메라 앱에서 반려동물이 움직이고 있는지, 어떤 행동을 하고 있는지 실시간으로 감지하고 분석할 수 있도록 하였습니다)
